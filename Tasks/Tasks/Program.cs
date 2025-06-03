@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Tasks.Task1;
 using Tasks.Task2;
 using Tasks.Task3;
+using Tasks.Task4;
 
 namespace Tasks
 {
@@ -70,38 +72,71 @@ namespace Tasks
             #endregion
 
             #region Task3
-            int [] arr = new int[] {3,4,2,5,1 };
-            ArrayUtils arrayUtils = new();
-            arrayUtils.ReverseArray<int>(arr);
-            foreach(int item in arr)
-            {
-                Console.Write($"{item} ");
-            }
+            //int [] arr = new int[] {3,4,2,5,1 };
+            //ArrayUtils arrayUtils = new();
+            //arrayUtils.ReverseArray<int>(arr);
+            //foreach(int item in arr)
+            //{
+            //    Console.Write($"{item} ");
+            //}
 
+            //Console.WriteLine();
+            //try
+            //{
+            //    Console.WriteLine($"Maximum : {arrayUtils.FindMax(arr)}");
+
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
+
+            //Cash<string, int> cache = new Cash<string, int>(3);
+
+            //cache.Add("a", 1);
+            //cache.Add("b", 2);
+            //cache.Add("c", 3);
+
+            //cache.GetByKey("a");
+
+
+            //cache.Add("d", 4);  // Cache exceeds max size, evicts least recently used ("b")
+
+            ////if we try to remove b will return false as it's not exist
+            //Console.WriteLine( cache.Remove("b"));
+            #endregion
+
+            #region Task4
+            MyStringCollection myStringCollection = new MyStringCollection();
+            myStringCollection.Add("Ahmad");
+            myStringCollection.Add("Mohamd");
+            myStringCollection.Add("omar");
+            myStringCollection.Add("sohaila");
+
+            Console.WriteLine(myStringCollection.Contains("hoda"));
+
+            myStringCollection.Remove("omar");
+
+            myStringCollection.PrintAll();
+
+            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+
+            EvenNumberCollection myNumbers = new(numbers);
+
+            IEnumerable<int> iNumbers = new EvenNumberCollection(numbers);
+            Console.WriteLine("Even numbers using yield");
+            foreach(int num in myNumbers)
+            {
+                Console.Write($"{num} ");
+            }
             Console.WriteLine();
-            try
+            Console.WriteLine("Even numbers using custom IEnumrator");
+            foreach (int num in iNumbers)
             {
-                Console.WriteLine($"Maximum : {arrayUtils.FindMax(arr)}");
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                Console.Write($"{num} ");
             }
 
-            Cash<string, int> cache = new Cash<string, int>(3);
 
-            cache.Add("a", 1);
-            cache.Add("b", 2);
-            cache.Add("c", 3);
-
-            cache.GetByKey("a");
-
-
-            cache.Add("d", 4);  // Cache exceeds max size, evicts least recently used ("b")
-
-            //if we try to remove b will return false as it's not exist
-            Console.WriteLine( cache.Remove("b"));
             #endregion
         }
     }
