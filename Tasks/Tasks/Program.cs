@@ -107,37 +107,81 @@ namespace Tasks
             #endregion
 
             #region Task4
-            MyStringCollection myStringCollection = new MyStringCollection();
-            myStringCollection.Add("Ahmad");
-            myStringCollection.Add("Mohamd");
-            myStringCollection.Add("omar");
-            myStringCollection.Add("sohaila");
+            //MyStringCollection myStringCollection = new MyStringCollection();
+            //myStringCollection.Add("Ahmad");
+            //myStringCollection.Add("Mohamd");
+            //myStringCollection.Add("omar");
+            //myStringCollection.Add("sohaila");
 
-            Console.WriteLine(myStringCollection.Contains("hoda"));
+            //Console.WriteLine(myStringCollection.Contains("hoda"));
 
-            myStringCollection.Remove("omar");
+            //myStringCollection.Remove("omar");
 
-            myStringCollection.PrintAll();
+            //myStringCollection.PrintAll();
 
-            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+            //List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-            EvenNumberCollection myNumbers = new(numbers);
+            //EvenNumberCollection myNumbers = new(numbers);
 
-            IEnumerable<int> iNumbers = new EvenNumberCollection(numbers);
-            Console.WriteLine("Even numbers using yield");
-            foreach(int num in myNumbers)
+            //IEnumerable<int> iNumbers = new EvenNumberCollection(numbers);
+            //Console.WriteLine("Even numbers using yield");
+            //foreach (int num in myNumbers)
+            //{
+            //    Console.Write($"{num} ");
+            //}
+            //Console.WriteLine();
+            //Console.WriteLine("Even numbers using custom IEnumrator");
+            //foreach (int num in iNumbers)
+            //{
+            //    Console.Write($"{num} ");
+            //}
+
+
+            #endregion
+
+            #region Task5
+
+               #region Q1
+            List<int> numbers = new() { 3, 9, 2, 7, 10, 15 };
+
+            List<int> filteredNumbers = numbers.FindAll((num) => num > 5);
+            Console.WriteLine("Numbers greater than 5: ");
+            foreach (int num in filteredNumbers)
             {
                 Console.Write($"{num} ");
             }
             Console.WriteLine();
-            Console.WriteLine("Even numbers using custom IEnumrator");
-            foreach (int num in iNumbers)
-            {
-                Console.Write($"{num} ");
-            }
+            #endregion
 
+               #region Q2
+            List<string> names = new () { "Mona", "Ziad", "Ali", "Laila" };
+            names.Sort((n1,n2)=> n1.Length.CompareTo(n2.Length));
+
+            Console.WriteLine("Names sorted with length: ");
+            foreach (string name in names)
+            {
+                Console.Write($"{name} ");
+            }
+            Console.WriteLine();
 
             #endregion
+
+               #region Q3
+
+            Func<int, int, int> Add = (num1, num2) => num1 + num2;
+            Console.WriteLine($"Result of adding 10 , 20 : ");
+            Console.WriteLine(Add(10, 20));
+            #endregion
+
+               #region Q4
+
+                Action<string> print = (name) => Console.WriteLine($"Hello, {name}!");
+                print("Hoda");
+
+                #endregion
+
+            #endregion
+
         }
     }
 }
