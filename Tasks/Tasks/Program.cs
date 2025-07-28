@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Tasks.ADOTask.BL.Entities;
+using Tasks.ADOTask.BL.EntityManager;
 using Tasks.Task1;
 using Tasks.Task2;
 using Tasks.Task3;
@@ -141,44 +143,85 @@ namespace Tasks
 
             #region Task5
 
-               #region Q1
-            List<int> numbers = new() { 3, 9, 2, 7, 10, 15 };
+            #region Q1
+            //List<int> numbers = new() { 3, 9, 2, 7, 10, 15 };
 
-            List<int> filteredNumbers = numbers.FindAll((num) => num > 5);
-            Console.WriteLine("Numbers greater than 5: ");
-            foreach (int num in filteredNumbers)
+            //List<int> filteredNumbers = numbers.FindAll((num) => num > 5);
+            //Console.WriteLine("Numbers greater than 5: ");
+            //foreach (int num in filteredNumbers)
+            //{
+            //    Console.Write($"{num} ");
+            //}
+            //Console.WriteLine();
+            #endregion
+
+            #region Q2
+            //List<string> names = new () { "Mona", "Ziad", "Ali", "Laila" };
+            //names.Sort((n1,n2)=> n1.Length.CompareTo(n2.Length));
+
+            //Console.WriteLine("Names sorted with length: ");
+            //foreach (string name in names)
+            //{
+            //    Console.Write($"{name} ");
+            //}
+            //Console.WriteLine();
+
+            #endregion
+
+            #region Q3
+
+            //Func<int, int, int> Add = (num1, num2) => num1 + num2;
+            //Console.WriteLine($"Result of adding 10 , 20 : ");
+            //Console.WriteLine(Add(10, 20));
+            #endregion
+
+            #region Q4
+
+            //    Action<string> print = (name) => Console.WriteLine($"Hello, {name}!");
+            //    print("Hoda");
+
+            #endregion
+
+            #endregion
+
+            #region Task6
+            //List<int> myList = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //try
+            //{
+            //    var page1 = myList.Paginate(1, 5);
+            //    foreach (int item in page1)
+            //    {
+            //        Console.WriteLine(item);
+            //    }
+            //}
+            //catch(Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+
+            //}
+
+            //var person = new { ID = 1, Name = "Hoda", age = "22" };
+
+            //Console.WriteLine( person.ToJson());
+
+
+            #endregion
+
+            #region ADO task
+
+            Employee emp1 = new() { Name = "Hoda", Age = 24, Department = "IT" };
+            Employee emp2 = new() { Name = "Mohamed", Age = 34, Department = "HR" };
+
+            EmployeeManager.InsertEmployee(emp1);
+            EmployeeManager.InsertEmployee(emp2);
+
+            List<Employee> employees = EmployeeManager.GetAllEmployees();
+
+            foreach(var emp in employees)
             {
-                Console.Write($"{num} ");
+                Console.WriteLine($"ID:{emp.ID}, Name: {emp.Name}, Age:{emp.Age}, Dept: {emp.Department}");
             }
-            Console.WriteLine();
-            #endregion
 
-               #region Q2
-            List<string> names = new () { "Mona", "Ziad", "Ali", "Laila" };
-            names.Sort((n1,n2)=> n1.Length.CompareTo(n2.Length));
-
-            Console.WriteLine("Names sorted with length: ");
-            foreach (string name in names)
-            {
-                Console.Write($"{name} ");
-            }
-            Console.WriteLine();
-
-            #endregion
-
-               #region Q3
-
-            Func<int, int, int> Add = (num1, num2) => num1 + num2;
-            Console.WriteLine($"Result of adding 10 , 20 : ");
-            Console.WriteLine(Add(10, 20));
-            #endregion
-
-               #region Q4
-
-                Action<string> print = (name) => Console.WriteLine($"Hello, {name}!");
-                print("Hoda");
-
-                #endregion
 
             #endregion
 
